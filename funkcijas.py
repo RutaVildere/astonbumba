@@ -11,7 +11,8 @@ def checkHistory(userId):
     if os.path.isfile(filepath):
         with open(filepath, 'r') as history:
             lines = history.readlines()
-            if os.path.getsize(filepath) == 0: return "Empty"
+            if os.path.getsize(filepath) == 0:
+                return "Empty"
             else:
                 answers = []
                 for i in lines:
@@ -40,8 +41,10 @@ def createAccount(name, surname, username, email, password):
     lastid = 0
     for i in lines:
         info = i.split(',')
-        if info == ['\n']: break
-        if info[2] == username or info[3] == email: return -1
+        if info == ['\n']:
+            break
+        if info[2] == username or info[3] == email:
+            return -1
         lastid = info[5]
 
     database = open("userDB.txt", 'a')
@@ -65,14 +68,15 @@ def loginIntoAccount(username, password):
     database.close()
     for i in lines:
         info = i.split(',')
-        if info == ['\n']: break
+        if info == ['\n']:
+            break
         if info[2] == username and info[4] == password:
             return info[5]  # returns user ID
 
 def answers():
-    atbildes=("Jā", "Nē", "Pajautā vēlāk", "Jā, protams", "Ļoti iespējams", "Nepaļaujies uz to", "Viss rāda, ka jā", "Nekādā gadījumā", "Koncentrējies un prasi vēlreiz")
+    fails=open("atbildes.txt", "r")
+    x=fails.readline()
+    atbildes=x.split(";")
     rez=random.randint(0, len(atbildes)-1)
     return atbildes[rez]
-
-    return False
 
