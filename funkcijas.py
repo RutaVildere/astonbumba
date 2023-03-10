@@ -1,5 +1,5 @@
 import os
-
+import random
 
 def createNextId(id):
     return str(int(id) + 1)
@@ -69,14 +69,10 @@ def loginIntoAccount(username, password):
         if info[2] == username and info[4] == password:
             return info[5]  # returns user ID
 
+def answers():
+    atbildes=("Jā", "Nē", "Pajautā vēlāk", "Jā, protams", "Ļoti iespējams", "Nepaļaujies uz to", "Viss rāda, ka jā", "Nekādā gadījumā", "Koncentrējies un prasi vēlreiz")
+    rez=random.randint(0, len(atbildes)-1)
+    return atbildes[rez]
+
     return False
-
-
-if __name__ == '__main__':
-    createAccount("vards", "uzvards", "logins1", "email1", "pass")
-    print(loginIntoAccount("logins1", "pass"))
-    addToHistory("Are u friendly?", "No", '0')
-    print(checkHistory('0'))
-    x = checkHistory('0')
-    print(x)
 
