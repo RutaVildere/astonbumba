@@ -1,8 +1,5 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import os
+
 
 def createNextId(id):
     return str(int(id) + 1)
@@ -58,7 +55,7 @@ def createAccount(name, surname, username, email, password):
     ]
     database.writelines(newUser)
     database.close()
-    return 0
+    return lastid  # returns user ID
 
 
 # returns userID on sucessful login, otherwise False
@@ -70,9 +67,10 @@ def loginIntoAccount(username, password):
         info = i.split(',')
         if info == ['\n']: break
         if info[2] == username and info[4] == password:
-            return info[5]
+            return info[5]  # returns user ID
 
     return False
+
 
 if __name__ == '__main__':
     createAccount("vards", "uzvards", "logins1", "email1", "pass")
