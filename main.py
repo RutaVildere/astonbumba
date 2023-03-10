@@ -1,10 +1,10 @@
 import tkinter as tk
+from funkcijas import *
 
 window = tk.Tk()
 window.title('Astoņbumba')
 window.geometry("350x350")
 window.config(bg='#D1D1D1')
-
 
 def atbilde():
     for widgets in window.winfo_children():
@@ -12,7 +12,8 @@ def atbilde():
     j = tk.Label(text="iegūtā atbilde uz jautājumu",
                  bg='#D1D1D1',
                  fg='#74308D',
-                 font=('Calibri', 14)).place(anchor="c", relx=0.5,
+                 font=('Calibri', 14)).place(anchor="c",
+                                             relx=0.5,
                                              rely=0.2)  #vel jaievieto attēls
     #jāsataisa lai atbilde ir random ģenerēta un izvadīta
 
@@ -130,7 +131,7 @@ def register():
                      font=('Calibri', 10)).place(anchor="c",
                                                  relx=0.2,
                                                  rely=0.35)
-    uzvards = tk.Label(text="Uzvārs",
+    uzvards = tk.Label(text="Uzvārds",
                        bg='#D1D1D1',
                        fg='#74308D',
                        font=('Calibri', 10)).place(anchor="c",
@@ -212,7 +213,7 @@ def register():
 def ienakt():
     for widgets in window.winfo_children():
         widgets.destroy()
-    hello = tk.Label(text="Lietotāj vārds",
+    hello = tk.Label(text="Lietotājvārds",
                      bg='#D1D1D1',
                      fg='#74308D',
                      font=('Calibri', 10)).place(anchor="c",
@@ -236,7 +237,7 @@ def ienakt():
                                                   width=150)
     jaut_vesture = tk.Button(window,
                              text="Ienākt",
-                             command=izvele,
+                             command=izvele, loginIntoAccount() ,
                              width=10,
                              bg='#D1D1D1',
                              fg='#FFFFFF',
