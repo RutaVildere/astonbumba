@@ -1,6 +1,5 @@
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import os
+
 
 def createNextId(id):
     return str(int(id) + 1)
@@ -12,8 +11,7 @@ def checkHistory(userId):
     if os.path.isfile(filepath):
         with open(filepath, 'r') as history:
             lines = history.readlines()
-            if os.path.getsize(filepath) == 0:
-                return "Empty"
+            if os.path.getsize(filepath) == 0: return "Empty"
             else:
                 answers = []
                 for i in lines:
@@ -22,6 +20,7 @@ def checkHistory(userId):
             return answers
     else:
         return "Empty"
+
 
 def addToHistory(question, answer, userId):
     filepath = userId + ".txt"
@@ -56,7 +55,7 @@ def createAccount(name, surname, username, email, password):
     ]
     database.writelines(newUser)
     database.close()
-    return 0
+    return lastid  # returns user ID
 
 
 # returns userID on sucessful login, otherwise False
@@ -68,6 +67,16 @@ def loginIntoAccount(username, password):
         info = i.split(',')
         if info == ['\n']: break
         if info[2] == username and info[4] == password:
-            return info[5]
+            return info[5]  # returns user ID
+
     return False
+
+
+if __name__ == '__main__':
+    createAccount("vards", "uzvards", "logins1", "email1", "pass")
+    print(loginIntoAccount("logins1", "pass"))
+    addToHistory("Are u friendly?", "No", '0')
+    print(checkHistory('0'))
+    x = checkHistory('0')
+    print(x)
 
