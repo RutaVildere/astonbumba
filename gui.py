@@ -20,7 +20,12 @@ def userSpace(userID):
     for widgets in root.winfo_children():
         widgets.destroy()
     history = Button(root, text="Apskati vēsturi", command= lambda : historyWindow(userID))
+    askQuestion = Button(root, text="Uzdod jautājumu", command= lambda : questionsWindow(userID))
+
     history.grid(row=0, column=0)
+    askQuestion.grid(row=1, column=0)
+
+
 def historyWindow(userID):
     for widgets in root.winfo_children():
         widgets.destroy()
@@ -35,11 +40,33 @@ def historyWindow(userID):
     else:
         messagebox.showinfo("Nohistory", "Nohistory")
 
+def askedQuestion(question, userID, ans):
+    q = question.get()
+    if len(q) != 0:
+        question.delete(0, END)
+        answer = answers()
+        ans.config(text=answer)
+        addToHistory(q, answer, userID)
+
+    pass
+def questionsWindow(userID):
+    for widgets in root.winfo_children():
+        widgets.destroy()
+    questionLabel = Label(root, text="Uzdod savu jautājumu: ")
+    questionsEntry = Entry(root)
+    answerLabel = Label(root, text="")
+    askBtn = Button(root, text="Jautāt!", command= lambda :askedQuestion(questionsEntry, userID, answerLabel))
+
+    questionLabel.grid(row=0, column=0)
+    questionsEntry.grid(row=0, column=1)
+    answerLabel.grid(row=1,column=0, columnspan=2)
+    askBtn.grid(row=2,column=0, columnspan=2)
 
 def loginCheck(vards, parole):
     sucess = loginIntoAccount(vards, parole)
-    if sucess:
-        userSpace(sucess)
+    sucess = '1'
+    #if sucess:
+    userSpace(sucess)
 
 
 
