@@ -116,7 +116,6 @@ def loginCheck(vards, parole):          #Pārbauda vai ir pareizi ierakstits lie
     x = vards.get()
     y = parole.get()
     sucess = loginIntoAccount(x, y)
-    print(sucess)
     vards.delete(0,END)
     parole.delete(0,END)
 

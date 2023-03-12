@@ -1,3 +1,1 @@
-vards,uzvards,logins1,email1,pass,1
-ruta,vildere,vildere,ruta@idiote.lv,ruta,3
-,,,,,4
+Janis,Paraudzins,Lietotajs,j.joku@peteris.com,parole,1

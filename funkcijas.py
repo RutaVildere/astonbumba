@@ -8,7 +8,6 @@ def createNextId(id):
 # else returns a list of tuples - (question, answer)
 def checkHistory(userId):
     filepath = userId+".txt"
-    print(filepath)
     if os.path.isfile(filepath):
         with open(filepath, 'r') as history:
             lines = history.readlines()
@@ -77,14 +76,10 @@ def answers():
     fails = open("atbildes.txt", "r")
     x = fails.readline()
     atbildes = x.split(";")
-    print(atbildes, 'werhefefee')
     rez = random.randint(0, len(atbildes)-1)
     return atbildes[rez]
 if __name__ == '__main__':
     createAccount("vards", "uzvards", "logins1", "email1", "pass")
-    print(loginIntoAccount("logins1", "pass"))
     addToHistory("Are u friendly?", "No", '0')
-    print(checkHistory('0'))
     x = checkHistory('0')
-    print(x)
 
