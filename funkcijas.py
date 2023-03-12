@@ -24,7 +24,7 @@ def checkHistory(userId):
 
 def addToHistory(question, answer, userId):
     filepath = userId + ".txt"
-    newanswer = [question, ',', answer, '\n']
+    newanswer = [question, ';', answer, '\n']
     with open(filepath, 'a+') as history:
         history.writelines(newanswer)
 
@@ -76,6 +76,7 @@ def answers():
     fails = open("atbildes.txt", "r")
     x = fails.readline()
     atbildes = x.split(";")
+    print(atbildes, 'werhefefee')
     rez = random.randint(0, len(atbildes)-1)
     return atbildes[rez]
 if __name__ == '__main__':

@@ -237,7 +237,7 @@ def ienakt():
                                                   width=150)
     jaut_vesture = tk.Button(window,
                              text="Ienākt",
-                             command=lambda: izvele, loginIntoAccount() ,
+                             command=izvele,
                              width=10,
                              bg='#D1D1D1',
                              fg='#FFFFFF',
