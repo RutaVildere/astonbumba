@@ -8,6 +8,7 @@ def createNextId(id):
 # else returns a list of tuples - (question, answer)
 def checkHistory(userId):
     filepath = userId+".txt"
+    print(filepath)
     if os.path.isfile(filepath):
         with open(filepath, 'r') as history:
             lines = history.readlines()
@@ -15,7 +16,7 @@ def checkHistory(userId):
             else:
                 answers = []
                 for i in lines:
-                    info = i.split(',')
+                    info = i.split(';')
                     answers.append((info[0], info[1].split('\n')[0])) # Deletes the useless \n
             return answers
     else:
